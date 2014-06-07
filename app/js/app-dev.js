@@ -4,11 +4,14 @@
 // Declare app level module which depends on filters, and services
 angular.module('baApp', [
   'ngRoute',
+  'ui.bootstrap',
+  'ui.sortable',
   'ngMockE2E',
   'baApp.filters',
   'baApp.services',
   'baApp.directives',
-  'baApp.controllers'
+  'baApp.controllers',
+  'baApp.ckeditor',
 ]).
 run(function($httpBackend){
         $httpBackend.whenGET(/^partials\//).passThrough();
