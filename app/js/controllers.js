@@ -4,6 +4,8 @@
 angular.module('baApp.controllers', [])
     .controller('CampCtrl', ['$scope', '$modal', '$log',
         function($scope, $modal, $log) {
+
+
             $scope.content = {};
             $scope.survey = {};
             /**
@@ -80,12 +82,15 @@ angular.module('baApp.controllers', [])
                 });
             };
 
-            /** Sortable **/
-
-            $scope.sortingLog = [];
-            $scope.sortableOptions = {
-
+            /** DragArea **/
+            $scope.dropSuccessHandler = function($event,index,array){
+                array.splice(index,1);
             };
+
+            $scope.onDrop = function($event,$data,array){
+                array.push($data);
+            };
+
 }]).controller('ModalSurveyCtrl', ['$scope', '$modalInstance', 'items', function($scope, $modalInstance, items) {
         $scope.items = items;
 

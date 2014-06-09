@@ -5,13 +5,13 @@
 angular.module('baApp', [
   'ngRoute',
   'ui.bootstrap',
-  'ui.sortable',
   'ngMockE2E',
   'baApp.filters',
   'baApp.services',
   'baApp.directives',
   'baApp.controllers',
   'baApp.ckeditor',
+  'ngDragDrop',
 ]).
 run(function($httpBackend){
         $httpBackend.whenGET(/^partials\//).passThrough();

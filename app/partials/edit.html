@@ -11,18 +11,30 @@
             </button>
         </div>
         <hr>
-        {{list}}
     </div>
+    <h4>Survey Picked: {{survey.chosen.name}}</h4>
+
     <div class="row clearfix">
-        <h4>Survey Picked: {{survey.chosen.name}}</h4>
-        <div
-                ng-model="list" class="list"
-                ui-sortable>
-            <div ng-repeat="content_block in content">
+        <div ui-on-Drop="onDrop($event,$data,list)" class="col-lg-6">
+            <div
+                    ng-repeat="chosen_question in survey.chosen_questions track by $index"
+                    class="well col-lg-5"
+                    ui-draggable="true" drag="survey"
+                    on-drop-success="dropSuccessHandler($event,$index,list)">
+                <i class="icon-move"></i>&nbsp;
+                {{ chosen_question.question }}
+                &nbsp;<i class="icon-remove"></i>
+            </div>
+
+            <div ng-repeat="content_block in content track by $index"
+                 ui-draggable="true" drag="textbox"
+                 on-drop-success="dropSuccessHandler($event,$index,list)">
                 <i class="icon-move"></i>&nbsp;
                 <div ckedit="content_block.value"></div>
                 &nbsp;<i class="icon-remove"></i>
             </div>
+        </div>
+        <div ui-on-Drop="onDrop($event,$data,list2)" class="col-lg-6">
         </div>
 
     </div>
