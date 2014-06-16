@@ -31,3 +31,38 @@
 
 /* this if for ui-bootstrap */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+
+
+div.example {
+    border: 1px solid green;
+    margin: 5px;
+}
+
+
+
+/** for dyanmic float **/
+.row-fluid [class*="span"] {
+    margin-left: 0 !important;
+}
+
+.content-area {
+    padding:10px;
+}
+
+.ng-repeat-reorder-parent, [ng-repeat-reorder]{
+    z-index: 10;
+    position: relative;
+}
+[ng-repeat-reorder].dragging{
+    z-index: 11;
+    position: absolute;
+}
+
+.active-drag-below {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

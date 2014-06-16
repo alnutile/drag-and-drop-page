@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row clearfix">
-        <div class="col-md-12 column">
+        <div class="span12 column">
             <button role="button" class="btn btn-primary" ng-click="addTextBlock()">
                 <i class="icon-plus"></i>
                 &nbsp; Add Text Block
@@ -14,42 +14,35 @@
     </div>
     <h4>Survey Picked: {{survey.chosen.name}}</h4>
 
-    <div class="row clearfix">
-        <div ui-on-Drop="onDrop($event,$data,list)" class="col-lg-6">
-            <div
-                    ng-repeat="chosen_question in survey.chosen_questions track by $index"
-                    class="well col-lg-5"
-                    ui-draggable="true" drag="survey"
-                    on-drop-success="dropSuccessHandler($event,$index,list)">
-                <i class="icon-move"></i>&nbsp;
-                {{ chosen_question.question }}
-                &nbsp;<i class="icon-remove"></i>
+    <div class="row clearfix content-area">
+        <div>
+            <!-- | orderBy:list_sort  -->
+            <div ng-repeat-reorder="content_block in list track by $index"
+                 ng-repeat-reorder-handle="i.icon-move"
+                 class="form-group has-feedback transition span{{content_block.span}} example">
+                <i class="icon-move drag-handle"></i>&nbsp;
+                <select ng-change="setSizer(content_block, sizer.size)" ng-model="sizer" ng-options="size.label for size in sizes" class="span2">
+                    <options>--</options>
+                </select>
+                    <ng-include src="view.getView(content_block.type)"></ng-include>
+                &nbsp;<i class="icon-remove" ng-click="removeItem(content_block)"></i>
             </div>
-
-            <div ng-repeat="content_block in content track by $index"
-                 ui-draggable="true" drag="textbox"
-                 on-drop-success="dropSuccessHandler($event,$index,list)">
-                <i class="icon-move"></i>&nbsp;
-                <div ckedit="content_block.value"></div>
-                &nbsp;<i class="icon-remove"></i>
-            </div>
-        </div>
-        <div ui-on-Drop="onDrop($event,$data,list2)" class="col-lg-6">
         </div>
 
     </div>
     <div class="row clearfix">
+        <h5>Live Data</h5>
+        {{ list }}
     </div>
 </div>
 
 <script type="text/ng-template" id="surveys.html">
     <div class="modal-header">
-        <h3 class="modal-title">Choose the Survey to embed</h3>
     </div>
     <div class="modal-body">
-
+        <h3>Choose a Survey to pull in active questions</h3>
         <ul>
-            <li ng-repeat="item in items">
+            <li ng-repeat-reorder="item in items">
                 <a href="" ng-click="selectedSurvey(item)">{{ item.name }}</a>
             </li>
         </ul>
