@@ -1,0 +1,56 @@
+@import "vars";
+
+.ng-repeat-reorder-parent {
+  .select_size {
+    width:100px;
+  }
+  .form-group {
+    border-radius: $r_corner;
+    background-color: $light;
+    border-color: $dark;
+    margin: 5px;
+    padding: 5px 0;
+  }
+
+  .form-group.dragging-before  {
+    background-color: $dark;
+    margin-bottom: 15px;
+    .cke_editable {
+      z-index: -1;
+    }
+  }
+
+  .form-group.dragging-after  {
+    background-color: $dark;
+    border-top: 1px solid #cccccc;
+    margin-top: 15px;
+    .cke_editable {
+      z-index: -1;
+    }
+  }
+
+  [ng-repeat-reorder].dragging{
+    z-index: 11;
+    position: absolute;
+    .cke_editable {
+      z-index: -1;
+    }
+  }
+
+
+  .drag-handle {
+    cursor: pointer;
+    padding-left: 5px;
+  }
+  .cke_editable {
+    padding: 5px;
+  }
+  .icon-remove {
+    padding-left: 5px;
+  }
+  &.active-drag-below {
+  }
+
+
+}
+

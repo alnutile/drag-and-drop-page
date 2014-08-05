@@ -21,8 +21,9 @@
                  ng-repeat-reorder-handle="i.icon-move"
                  class="form-group has-feedback transition span{{content_block.span}} example">
                 <i class="icon-move drag-handle"></i>&nbsp;
-                <select ng-change="setSizer(content_block, sizer.size)" ng-model="sizer" ng-options="size.label for size in sizes" class="span2">
-                    <options>--</options>
+                <select ng-change="setSizer(content_block, sizer.size)" ng-model="sizer" ng-options="size.label for size in sizes" class="span2 select_size">
+                    <option value="">- size -</option>
+                    <!--<options>--</options>-->
                 </select>
                     <ng-include src="view.getView(content_block.type)"></ng-include>
                 &nbsp;<i class="icon-remove" ng-click="removeItem(content_block)"></i>

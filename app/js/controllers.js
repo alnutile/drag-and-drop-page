@@ -7,10 +7,8 @@ angular.module('baApp.controllers', [])
 
             $scope.list_sort = "sort";
             $scope.sizes = [
-                { label: "s", size: 2 },
-                { label: "m", size: 4 },
-                { label: "l", size: 6 },
-                { label: "xl",size: 12}
+                { label: "Half Width", size: 6 },
+                { label: "Full Width", size: 12 }
             ];
             $scope.content = {};
             $scope.survey = {};
@@ -39,7 +37,7 @@ angular.module('baApp.controllers', [])
             $scope.items = [
                 { name: 'Survey 1', id: 1, type: "question" },
                 { name: 'Survey 2', id: 2, type: "question" },
-                { name: 'Survey 3', id: 3, type: "question" },
+                { name: 'Survey 3', id: 3, type: "question" }
             ];
 
             $scope.content = [
@@ -49,7 +47,7 @@ angular.module('baApp.controllers', [])
                     type: 'text',
                     x: "0",
                     y: "0",
-                    span: 5,
+                    span: 12,
                     id: 1
                 },
                 {
@@ -58,7 +56,7 @@ angular.module('baApp.controllers', [])
                     type: 'text',
                     x: "0",
                     y: "0",
-                    span: 5,
+                    span: 12,
                     id: 2
                 },
                 {
@@ -67,7 +65,7 @@ angular.module('baApp.controllers', [])
                     type: 'text',
                     x: "0",
                     y: "0",
-                    span: 8,
+                    span: 12,
                     id: 3
                 }
             ];
@@ -135,6 +133,7 @@ angular.module('baApp.controllers', [])
                     if(v.id == item.id && v.type == item.type) {
                         item.span = new_size;
                         $scope.list[i] = item;
+                        console.log(item);
                     }
                 });
             }

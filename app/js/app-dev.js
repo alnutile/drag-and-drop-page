@@ -13,7 +13,7 @@ angular.module('baApp', [
   'baApp.ckeditor',
   'ngDragDrop',
   'ngRepeatReorder',
-  'hmTouchEvents',
+  'hmTouchEvents'
 ]).
 run(function($httpBackend){
         $httpBackend.whenGET(/^partials\//).passThrough();

@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<base>
+        <link rel="stylesheet" href="bootstrap.css">
+        <link rel="stylesheet" href="browser.css">
+	</head>
+
+	<body>
+
+    <script type="text/x-template-html" id="js-template-survey">
+        <tr>
+            <td>
+                <a href="javascript://" class="js-survey-link" data-url="%surveyUrl%">
+                    %title%
+                </a>
+            </td>
+            <td>
+                <a href="javascript://" class="js-survey-link" data-url="%surveyUrl2%">choose
+                </a>
+            </td>
+        </tr>
+    </script>
+
+
+    <ul class="folder-switcher" id="js-folder-switcher"></ul>
+
+		<div class="surveys-container container" id="js-survey-container">
+            <div class="row">
+                <div class="well span12">
+                    Just choose a survey below to embed it into your Campaign
+                </div>
+            </div>
+            <div class="row">
+                <table class="table offset2 span6 table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Choose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            Loading..
+        </div>
+
+		<script type="text/javascript" src="browser.js"></script>
+
+		<script type="text/javascript">
+            CkEditorSurveyEmbed.init();
+		</script>
+	</body>
+</html>
