@@ -19,7 +19,6 @@ angular.module('baApp.controllers', [])
             $scope.ckedit_partail = { name: "ckedit_partial", url: "partials/ckedit.html" }
             $scope.view = {
                 getView: function(type) {
-                    console.log(type);
                     if(type == 'text') {
                         return "partials/ckedit.html";
                     } else if(type == 'question') {
@@ -115,25 +114,24 @@ angular.module('baApp.controllers', [])
                 });
             };
 
-            /** DragArea **/
-            $scope.dropSuccessHandler = function($event,index,array,content_block){
-//                angular.forEach(array, function(v, i){
-//                    v.sort = i;
-//                    array[i] = v;
-//                });
-                array.splice(index,1);
-            };
+            $scope.$on('ngrr-dragstart', function(){
+                console.log('Drag Start');
+            });
 
-            $scope.onDrop = function($event,$data,array){
-                array.push($data);
-            };
+            $scope.$watch('list', function(){
+               angular.forEach($scope.list, function(v, i){
+                   //console.log(i);
+                   //console.log(v);
+                   console.log($scope.list[i].sort);
+                   $scope.list[i].sort = i + 1;
+               });
+            });
 
             $scope.setSizer = function(item, new_size) {
                 angular.forEach($scope.list, function(v,i){
                     if(v.id == item.id && v.type == item.type) {
                         item.span = new_size;
                         $scope.list[i] = item;
-                        console.log(item);
                     }
                 });
             }

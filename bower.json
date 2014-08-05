@@ -12,6 +12,7 @@
     "angular-mocks": "~1.2.x",
     "html5-boilerplate": "~4.3.0",
     "angular-hammer": "~1.x",
-    "hammerjs": "1.x"
+    "hammerjs": "1.x",
+    "ngRepeatReorder": "~0.1.0"
   }
 }
