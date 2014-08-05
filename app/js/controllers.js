@@ -118,14 +118,17 @@ angular.module('baApp.controllers', [])
                 console.log('Drag Start');
             });
 
-            $scope.$watch('list', function(){
-               angular.forEach($scope.list, function(v, i){
-                   //console.log(i);
-                   //console.log(v);
-                   console.log($scope.list[i].sort);
-                   $scope.list[i].sort = i + 1;
-               });
+            $scope.$on('ngrr-dragend', function(){
+                console.log('Drag End');
             });
+
+            $scope.$on('ngrr-reordered', function(){
+                angular.forEach($scope.list, function(v,i){
+                    console.log($scope.list[i].sort);
+                    $scope.list[i].sort = i + 1;
+                });
+            });
+
 
             $scope.setSizer = function(item, new_size) {
                 angular.forEach($scope.list, function(v,i){

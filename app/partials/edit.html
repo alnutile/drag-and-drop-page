@@ -18,7 +18,7 @@
         <div>
             <!-- | orderBy:list_sort  -->
             <div ng-repeat-reorder="content_block in list track by $index"
-                 ng-repeat-reorder-handle="i.icon-move"
+                 ng-repeat-reorder-handle=""
                  class="form-group has-feedback transition span{{content_block.span}} example">
                 <i class="icon-move drag-handle"></i>&nbsp;
                 <select ng-change="setSizer(content_block, sizer.size)" ng-model="sizer" ng-options="size.label for size in sizes" class="span2 select_size">
