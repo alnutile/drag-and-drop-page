@@ -129,7 +129,6 @@ angular.module('baApp.controllers', [])
                 });
             });
 
-
             $scope.setSizer = function(item, new_size) {
                 angular.forEach($scope.list, function(v,i){
                     if(v.id == item.id && v.type == item.type) {
